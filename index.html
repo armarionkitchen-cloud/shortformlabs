@@ -3,319 +3,468 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ShortFormLabs | Atlanta Lead Automation</title>
-  <meta name="description" content="ShortFormLabs helps Atlanta businesses capture leads, follow up automatically, and book more appointments."/>
+  <title>ShortFormLabs | Lead Finder + DM Prep</title>
   <style>
     :root{
-      --bg:#0b0c10;
-      --card:#12141b;
-      --text:#e9ecf1;
-      --muted:#a6adbb;
-      --line:#232838;
-      --accent:#7c5cff;
-      --accent2:#2ee59d;
+      --bg:#0b0c10; --card:#12141b; --text:#e9ecf1; --muted:#a9b0bd;
+      --accent:#7c5cff; --accent2:#2ee59d; --danger:#ff5c7a; --line:#232838;
     }
     *{box-sizing:border-box}
     body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1000px 600px at 20% 10%, rgba(124,92,255,.18), transparent 60%),
-                  radial-gradient(1000px 600px at 80% 20%, rgba(46,229,157,.12), transparent 55%),
-                  var(--bg);
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#0b0c10, #090a0e);
       color:var(--text);
-      line-height:1.5;
     }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:1050px; margin:0 auto; padding:28px 18px 80px;}
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      border:1px solid var(--line);
-      background: rgba(18,20,27,.7);
-      backdrop-filter: blur(10px);
-      border-radius:16px;
-      padding:12px 14px;
-      position:sticky; top:14px; z-index:10;
+    .wrap{max-width:1100px;margin:0 auto;padding:22px}
+    .top{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      margin-bottom:14px;
     }
-    .brand{
-      display:flex; gap:10px; align-items:center;
-      font-weight:700; letter-spacing:.3px;
-    }
+    .brand{display:flex;align-items:center;gap:12px}
     .logo{
-      width:34px; height:34px; border-radius:12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 10px 40px rgba(124,92,255,.25);
+      width:42px;height:42px;border-radius:12px;background:radial-gradient(circle at 30% 30%, var(--accent), #1f2340);
+      border:1px solid var(--line); display:grid; place-items:center; font-weight:800;
     }
-    .navlinks{display:flex; gap:16px; align-items:center; flex-wrap:wrap;}
-    .pill{
-      padding:9px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:8px;
-      padding:11px 14px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.02);
-      font-weight:650;
-      font-size:14px;
-      transition: transform .12s ease, border-color .12s ease;
-    }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(124,92,255,.55)}
-    .btn.primary{
-      border: none;
-      background: linear-gradient(135deg, var(--accent), #5b8cff);
-      box-shadow: 0 16px 45px rgba(124,92,255,.22);
-    }
-    .hero{padding:56px 6px 26px;}
-    .kicker{
-      display:inline-flex; gap:10px; align-items:center;
-      padding:8px 12px; border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(18,20,27,.55);
-      color: var(--muted);
-      font-size:13px;
-    }
-    .dot{width:8px; height:8px; border-radius:999px; background: var(--accent2);}
-    h1{margin:16px 0 10px; font-size: clamp(34px, 4.2vw, 56px); line-height:1.05;}
-    .sub{max-width:740px; color:var(--muted); font-size: clamp(15px, 1.4vw, 18px);}
-    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;}
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
-      margin-top:24px;
-    }
+    .title h1{font-size:18px;margin:0}
+    .title p{margin:3px 0 0; color:var(--muted); font-size:13px}
     .card{
-      grid-column: span 12;
-      border:1px solid var(--line);
-      background: rgba(18,20,27,.65);
-      border-radius:18px;
-      padding:18px;
+      background:rgba(18,20,27,.92); border:1px solid var(--line);
+      border-radius:18px; padding:16px; box-shadow:0 12px 28px rgba(0,0,0,.35);
     }
-    @media(min-width:820px){
-      .card.third{grid-column: span 4;}
-      .card.half{grid-column: span 6;}
-    }
-    .card h3{margin:0 0 8px; font-size:18px;}
-    .card p{margin:0; color:var(--muted)}
-    .section{margin-top:46px;}
-    .section h2{margin:0 0 10px; font-size:26px;}
-    .section .desc{margin:0 0 18px; color:var(--muted); max-width:780px;}
-    .steps{display:grid; gap:12px;}
-    @media(min-width:820px){ .steps{grid-template-columns: repeat(3, 1fr);} }
-    .step{
-      border:1px solid var(--line);
-      background: rgba(18,20,27,.55);
-      border-radius:18px;
-      padding:16px;
-      min-height:120px;
-    }
-    .num{
-      width:28px; height:28px; border-radius:10px;
-      display:flex; align-items:center; justify-content:center;
-      background: rgba(124,92,255,.15);
-      border:1px solid rgba(124,92,255,.35);
-      font-weight:700;
-      margin-bottom:10px;
-    }
-    .list{display:grid; gap:10px;}
-    .item{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px 12px;
-      border:1px solid var(--line);
-      background: rgba(18,20,27,.55);
-      border-radius:14px;
-    }
-    .check{
-      width:18px; height:18px; border-radius:6px;
-      background: rgba(46,229,157,.16);
-      border:1px solid rgba(46,229,157,.45);
-      margin-top:2px;
-      flex:0 0 auto;
-    }
-    form{
-      display:grid; gap:12px;
-    }
-    .row{display:grid; gap:12px;}
-    @media(min-width:820px){ .row{grid-template-columns: 1fr 1fr;} }
-    input, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(9,10,14,.55);
-      color:var(--text);
+    .grid{display:grid;grid-template-columns:1.2fr .8fr; gap:14px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    label{display:block;font-size:12px;color:var(--muted);margin:10px 0 6px}
+    input,select,textarea{
+      width:100%; padding:12px 12px; border-radius:12px;
+      border:1px solid var(--line); background:#0f1118; color:var(--text);
       outline:none;
     }
-    textarea{min-height:110px; resize:vertical;}
-    .footer{
-      margin-top:44px;
-      padding-top:18px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:13px;
-      display:flex; gap:10px; justify-content:space-between; flex-wrap:wrap;
+    textarea{min-height:110px; resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr; gap:10px}
+    @media (max-width:520px){.row{grid-template-columns:1fr}}
+    .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    button{
+      padding:11px 14px; border-radius:12px; border:1px solid var(--line);
+      background:#121425; color:var(--text); cursor:pointer; font-weight:650;
     }
-    .small{font-size:13px; color:var(--muted)}
-    .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px; border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(18,20,27,.55);
-      color:var(--muted);
-      font-size:13px;
-      margin-right:8px;
-      margin-top:8px;
+    button.primary{background:linear-gradient(90deg,var(--accent),#4da3ff); border:none}
+    button.good{background:linear-gradient(90deg,var(--accent2),#3ad5ff); border:none; color:#071019}
+    button.danger{background:linear-gradient(90deg,var(--danger),#ff8a5c); border:none}
+    button:disabled{opacity:.55; cursor:not-allowed}
+    .meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; color:var(--muted); font-size:12px}
+    .pill{padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:#0f1118}
+    .results{margin-top:14px}
+    .lead{
+      padding:14px; border:1px solid var(--line); border-radius:16px; background:#0f1118;
+      display:grid; grid-template-columns:1fr auto; gap:10px; margin-bottom:10px;
     }
+    .lead h3{margin:0;font-size:15px}
+    .lead .small{color:var(--muted); font-size:12px; margin-top:4px; line-height:1.35}
+    .lead .actions{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    .lead a{color:inherit; text-decoration:none}
+    .toast{
+      position:fixed; left:50%; transform:translateX(-50%);
+      bottom:18px; background:#0f1118; border:1px solid var(--line);
+      padding:10px 12px; border-radius:12px; color:var(--text);
+      opacity:0; pointer-events:none; transition:.25s;
+      box-shadow:0 14px 28px rgba(0,0,0,.4);
+      font-size:13px;
+    }
+    .toast.show{opacity:1}
+    .note{color:var(--muted); font-size:12px; margin-top:8px; line-height:1.4}
+    .hr{height:1px;background:var(--line);margin:14px 0}
   </style>
 </head>
-
 <body>
   <div class="wrap">
-
-    <header class="nav">
+    <div class="top">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>ShortFormLabs</div>
-      </div>
-      <nav class="navlinks">
-        <a class="pill" href="#how">How it works</a>
-        <a class="pill" href="#offer">What you get</a>
-        <a class="pill" href="#contact">Contact</a>
-        <a class="btn primary" href="#contact">Free Setup Plan</a>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <div class="kicker"><span class="dot"></span> Atlanta • Lead capture + follow-up + booking</div>
-      <h1>Stop losing leads after hours.</h1>
-      <p class="sub">
-        ShortFormLabs sets up simple systems that instantly respond to new inquiries,
-        follow up automatically, and push leads to your booking calendar — so you get more appointments without extra work.
-      </p>
-
-      <div class="cta">
-        <a class="btn primary" href="#contact">Get a Free Setup Plan</a>
-        <a class="btn" href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noreferrer">DM us on Instagram</a>
-      </div>
-
-      <div class="grid">
-        <div class="card third">
-          <h3>Instant response</h3>
-          <p>New leads get a message in seconds — not hours.</p>
-        </div>
-        <div class="card third">
-          <h3>Auto follow-up</h3>
-          <p>We follow up until they reply or book.</p>
-        </div>
-        <div class="card third">
-          <h3>Booked appointments</h3>
-          <p>Leads get a link to schedule, plus reminders.</p>
+        <div class="logo">SF</div>
+        <div class="title">
+          <h1>ShortFormLabs — Lead Finder + DM Prep</h1>
+          <p>Find local businesses, copy a DM, open Instagram search. (Safe mode — no IG login)</p>
         </div>
       </div>
-    </section>
-
-    <section id="how" class="section">
-      <h2>How it works</h2>
-      <p class="desc">A simple, clean setup that fits your business — no complicated tech.</p>
-
-      <div class="steps">
-        <div class="step">
-          <div class="num">1</div>
-          <strong>Connect your leads</strong>
-          <p class="small">Website, Instagram, Google Business, ads, forms — wherever leads come in.</p>
-        </div>
-        <div class="step">
-          <div class="num">2</div>
-          <strong>Auto reply + follow up</strong>
-          <p class="small">Instant message + reminders so people don’t fall through.</p>
-        </div>
-        <div class="step">
-          <div class="num">3</div>
-          <strong>Booking + reminders</strong>
-          <p class="small">They book through your calendar, and we send confirmations/reminders.</p>
-        </div>
+      <div class="meta">
+        <span class="pill" id="statusPill">Ready</span>
+        <span class="pill" id="countPill">0 leads</span>
       </div>
+    </div>
 
-      <div class="grid">
-        <div class="card half">
-          <h3>Perfect for</h3>
-          <p>Med spas • Dentists • Chiropractors • Barbershops • Contractors • Trainers • Any appointment-based business</p>
+    <div class="grid">
+      <div class="card">
+        <h2 style="margin:0 0 8px;font-size:15px;">1) Search businesses</h2>
+        <div class="row">
           <div>
-            <span class="tag">After-hours leads</span>
-            <span class="tag">Missed calls</span>
-            <span class="tag">Slow replies</span>
-            <span class="tag">No-shows</span>
+            <label>Niche</label>
+            <select id="niche">
+              <option value="barbers">Barbershops</option>
+              <option value="dentists">Dentists</option>
+              <option value="gyms">Gyms</option>
+              <option value="medspas">Med Spas</option>
+              <option value="plumbers">Plumbers</option>
+              <option value="roofers">Roofers</option>
+              <option value="restaurants">Restaurants</option>
+            </select>
+          </div>
+          <div>
+            <label>City / Area (type what people say)</label>
+            <input id="area" value="Atlanta, Georgia" placeholder="Atlanta, Georgia" />
           </div>
         </div>
 
-        <div class="card half">
-          <h3>What you’ll notice</h3>
-          <p>
-            Faster replies → more conversations → more booked calls.
-            Most businesses lose money just from slow follow-ups.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="offer" class="section">
-      <h2>What you get</h2>
-      <p class="desc">We keep it simple and effective — built around getting you more booked appointments.</p>
-
-      <div class="list">
-        <div class="item"><div class="check"></div><div><strong>Lead capture</strong><div class="small">Forms + inquiry tracking so every lead is saved.</div></div></div>
-        <div class="item"><div class="check"></div><div><strong>Instant response</strong><div class="small">Auto reply that feels natural and professional.</div></div></div>
-        <div class="item"><div class="check"></div><div><strong>Follow-up sequences</strong><div class="small">Messages that keep going until they respond or book.</div></div></div>
-        <div class="item"><div class="check"></div><div><strong>Booking calendar</strong><div class="small">Scheduling link + reminders to reduce no-shows.</div></div></div>
-        <div class="item"><div class="check"></div><div><strong>Simple handoff</strong><div class="small">When they’re ready, you get notified to close fast.</div></div></div>
-      </div>
-
-      <div class="grid">
-        <div class="card half">
-          <h3>Timeline</h3>
-          <p>Setup usually takes <strong>48–72 hours</strong> depending on what you need connected.</p>
-        </div>
-        <div class="card half">
-          <h3>Price</h3>
-          <p>We start with a free setup plan — then a simple one-time setup + monthly support (if you want ongoing).</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <h2>Get a free setup plan</h2>
-      <p class="desc">Fill this out and we’ll send a quick plan showing exactly what to automate for your business.</p>
-
-      <!-- This form uses mailto (works without backend). You can upgrade later. -->
-      <form action="mailto:YOUR EMAIL" method="post" enctype="text/plain">
         <div class="row">
-          <input name="Name" placeholder="Your name" required />
-          <input name="Business" placeholder="Business name" required />
+          <div>
+            <label>Limit results (10–60)</label>
+            <input id="limit" type="number" min="10" max="60" value="30" />
+          </div>
+          <div>
+            <label>Only show leads with website</label>
+            <select id="onlyWebsite">
+              <option value="no">No (show all)</option>
+              <option value="yes">Yes (higher quality)</option>
+            </select>
+          </div>
         </div>
-        <div class="row">
-          <input name="Phone" placeholder="Phone number (optional)" />
-          <input name="Email" placeholder="Email" required />
-        </div>
-        <input name="Lead Source" placeholder="Where do leads come from? (IG, Google, website, ads, etc.)" />
-        <textarea name="Goal" placeholder="What do you want more of? (booked appointments, calls, quotes, etc.)"></textarea>
-        <button class="btn primary" type="submit">Send</button>
-        <div class="small">Prefer DM? Message us: <a href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noreferrer"><u>Instagram</u></a></div>
-      </form>
 
-      <div class="footer">
-        <div>© <span id="y"></span> ShortFormLabs • Atlanta</div>
-        <div>Lead automation • Follow-ups • Booking</div>
+        <div class="btns">
+          <button class="primary" id="searchBtn">Find Leads</button>
+          <button id="clearBtn">Clear</button>
+          <button class="good" id="csvBtn" disabled>Export CSV</button>
+        </div>
+
+        <div class="note">
+          This uses OpenStreetMap (free). Some businesses won’t have websites listed — that’s normal.
+          The goal is volume + quality. Use “Only show leads with website” for better hits.
+        </div>
+
+        <div class="hr"></div>
+
+        <h2 style="margin:0 0 8px;font-size:15px;">2) Your DM template</h2>
+        <label>DM Script (we auto-fill business name)</label>
+        <textarea id="dmTemplate">Hey {name} — quick question.
+
+Do you ever miss calls or inquiries when you’re busy or after hours?
+
+We help businesses capture and book those leads automatically (auto replies + follow-up + booking).
+Want me to show you how it would look for {name}?</textarea>
+
+        <div class="note">
+          Tip: Keep it short. Ask a yes/no question. Then offer a quick demo.
+        </div>
       </div>
-    </section>
+
+      <div class="card">
+        <h2 style="margin:0 0 10px;font-size:15px;">Leads</h2>
+        <div class="note" style="margin-top:0">
+          Flow for each lead:
+          <br>1) Copy DM
+          <br>2) Open IG Search (paste + send)
+          <br>3) Mark contacted in your notes/CSV
+        </div>
+        <div class="results" id="results"></div>
+      </div>
+    </div>
   </div>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <div class="toast" id="toast"></div>
+
+<script>
+/**
+ * Safe Lead Finder using Overpass API (OpenStreetMap)
+ * No IG login. No automation. You manually message (keeps you safe).
+ */
+
+const statusPill = document.getElementById('statusPill');
+const countPill  = document.getElementById('countPill');
+const resultsEl  = document.getElementById('results');
+const toastEl    = document.getElementById('toast');
+
+const nicheSelect = document.getElementById('niche');
+const areaInput   = document.getElementById('area');
+const limitInput  = document.getElementById('limit');
+const onlyWebsite = document.getElementById('onlyWebsite');
+
+const searchBtn = document.getElementById('searchBtn');
+const clearBtn  = document.getElementById('clearBtn');
+const csvBtn    = document.getElementById('csvBtn');
+const dmTemplateEl = document.getElementById('dmTemplate');
+
+let leads = [];
+
+function toast(msg){
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+  setTimeout(()=>toastEl.classList.remove('show'), 1400);
+}
+
+function setStatus(text){
+  statusPill.textContent = text;
+}
+
+function setCount(){
+  countPill.textContent = `${leads.length} lead${leads.length===1?'':'s'}`;
+  csvBtn.disabled = leads.length === 0;
+}
+
+/**
+ * Map niche -> OSM tags query
+ */
+function getNicheQuery(niche){
+  switch(niche){
+    case 'barbers':     return ['shop=hairdresser', 'shop=beauty', 'amenity=barber'];
+    case 'dentists':    return ['amenity=dentist'];
+    case 'gyms':        return ['leisure=fitness_centre', 'leisure=sports_centre'];
+    case 'medspas':     return ['healthcare=clinic', 'amenity=spa', 'shop=beauty'];
+    case 'plumbers':    return ['craft=plumber', 'shop=plumbing'];
+    case 'roofers':     return ['craft=roofer'];
+    case 'restaurants': return ['amenity=restaurant'];
+    default:            return ['shop=beauty'];
+  }
+}
+
+/**
+ * Overpass API helpers
+ */
+async function overpass(query){
+  const url = 'https://overpass-api.de/api/interpreter';
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'},
+    body: 'data=' + encodeURIComponent(query)
+  });
+  if(!res.ok) throw new Error('Overpass error');
+  return await res.json();
+}
+
+/**
+ * Build Overpass query by Area name
+ * Note: Area name must match OSM admin boundary. "Atlanta, Georgia" usually works.
+ */
+function buildQuery(areaName, tagPairs, limit){
+  const tagBlocks = tagPairs.map(tp => {
+    const [k,v] = tp.split('=');
+    return `
+      node["${k}"="${v}"](area.a);
+      way["${k}"="${v}"](area.a);
+      relation["${k}"="${v}"](area.a);
+    `;
+  }).join('\n');
+
+  return `
+    [out:json][timeout:25];
+    area["name"="${areaName}"]->.a;
+    (
+      ${tagBlocks}
+    );
+    out center tags ${limit};
+  `;
+}
+
+function normalize(el){
+  const t = el.tags || {};
+  const name = t.name || '(No name listed)';
+  const phone = t.phone || t['contact:phone'] || '';
+  const website = t.website || t['contact:website'] || '';
+  const instagram = t['contact:instagram'] || '';
+  const addr = [
+    t['addr:housenumber'],
+    t['addr:street'],
+    t['addr:city'],
+    t['addr:state'],
+    t['addr:postcode']
+  ].filter(Boolean).join(' ');
+  const lat = el.lat ?? (el.center && el.center.lat);
+  const lon = el.lon ?? (el.center && el.center.lon);
+
+  return {
+    name, phone, website, instagram,
+    address: addr,
+    lat, lon
+  };
+}
+
+function dmFor(lead){
+  const raw = dmTemplateEl.value || '';
+  return raw.replaceAll('{name}', lead.name);
+}
+
+function igSearchUrl(lead){
+  // best we can do safely: open IG search for the business name
+  const q = encodeURIComponent(lead.name);
+  return `https://www.instagram.com/explore/search/keyword/?q=${q}`;
+}
+
+function mapsUrl(lead){
+  if(lead.lat && lead.lon){
+    return `https://www.google.com/maps?q=${lead.lat},${lead.lon}`;
+  }
+  return lead.address ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lead.address)}` : '#';
+}
+
+function render(){
+  resultsEl.innerHTML = '';
+  if(leads.length === 0){
+    resultsEl.innerHTML = `<div class="note">No leads yet. Hit <b>Find Leads</b>.</div>`;
+    return;
+  }
+
+  leads.forEach((lead, idx) => {
+    const el = document.createElement('div');
+    el.className = 'lead';
+
+    const left = document.createElement('div');
+    left.innerHTML = `
+      <h3>${escapeHtml(lead.name)}</h3>
+      <div class="small">
+        ${lead.address ? `📍 ${escapeHtml(lead.address)}<br>` : ''}
+        ${lead.phone ? `📞 ${escapeHtml(lead.phone)}<br>` : ''}
+        ${lead.website ? `🌐 <a target="_blank" rel="noopener" href="${escapeAttr(lead.website)}">${escapeHtml(lead.website)}</a><br>` : ''}
+        ${lead.instagram ? `📸 ${escapeHtml(lead.instagram)}<br>` : ''}
+        <a target="_blank" rel="noopener" href="${mapsUrl(lead)}">Open in Maps</a>
+      </div>
+    `;
+
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+
+    const copyBtn = document.createElement('button');
+    copyBtn.textContent = 'Copy DM';
+    copyBtn.onclick = async () => {
+      const msg = dmFor(lead);
+      await navigator.clipboard.writeText(msg);
+      toast('DM copied ✅');
+    };
+
+    const openIgBtn = document.createElement('button');
+    openIgBtn.className = 'good';
+    openIgBtn.innerHTML = `<a target="_blank" rel="noopener" href="${igSearchUrl(lead)}">Open IG Search</a>`;
+
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'danger';
+    removeBtn.textContent = 'Remove';
+    removeBtn.onclick = () => {
+      leads.splice(idx, 1);
+      setCount();
+      render();
+    };
+
+    actions.appendChild(copyBtn);
+    actions.appendChild(openIgBtn);
+    actions.appendChild(removeBtn);
+
+    el.appendChild(left);
+    el.appendChild(actions);
+    resultsEl.appendChild(el);
+  });
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+function escapeAttr(s){
+  return String(s).replace(/"/g,'&quot;');
+}
+
+searchBtn.addEventListener('click', async () => {
+  const area = areaInput.value.trim();
+  if(!area){
+    toast('Type a city/area first');
+    return;
+  }
+
+  const niche = nicheSelect.value;
+  const tags = getNicheQuery(niche);
+  const limit = Math.max(10, Math.min(60, parseInt(limitInput.value || '30',10)));
+
+  setStatus('Searching…');
+  searchBtn.disabled = true;
+
+  try{
+    const query = buildQuery(area, tags, limit);
+    const data = await overpass(query);
+
+    let items = (data.elements || []).map(normalize);
+
+    // de-dupe by name + address
+    const seen = new Set();
+    items = items.filter(x => {
+      const key = (x.name + '|' + (x.address||'') + '|' + (x.website||'')).toLowerCase();
+      if(seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+
+    if(onlyWebsite.value === 'yes'){
+      items = items.filter(x => x.website && x.website.startsWith('http'));
+    }
+
+    // keep only up to limit after filtering
+    leads = items.slice(0, limit);
+
+    setCount();
+    render();
+    setStatus('Done');
+    toast('Leads loaded ✅');
+  } catch(e){
+    console.error(e);
+    setStatus('Error');
+    toast('Could not fetch. Try a simpler area name (ex: "Atlanta").');
+  } finally{
+    searchBtn.disabled = false;
+  }
+});
+
+clearBtn.addEventListener('click', () => {
+  leads = [];
+  setCount();
+  render();
+  setStatus('Ready');
+});
+
+csvBtn.addEventListener('click', () => {
+  if(leads.length === 0) return;
+
+  const rows = [
+    ['Name','Address','Phone','Website','Instagram','IG Search Link','Maps Link']
+  ];
+
+  for(const l of leads){
+    rows.push([
+      l.name || '',
+      l.address || '',
+      l.phone || '',
+      l.website || '',
+      l.instagram || '',
+      igSearchUrl(l),
+      mapsUrl(l)
+    ]);
+  }
+
+  const csv = rows.map(r => r.map(cell => `"${String(cell).replaceAll('"','""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `leads_${nicheSelect.value}_${(areaInput.value||'area').replace(/\s+/g,'_')}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+
+  toast('CSV downloaded ✅');
+});
+
+// initial
+setCount();
+render();
+</script>
 </body>
 </html>
+
+   
+
+
